@@ -1,0 +1,181 @@
+---
+title: 'PSYC259: Pre-Test'
+author: "Amanda Mae Woodward"
+date: "10/5/2020"
+output: html_document
+---
+Welcome to PSYC 259! Your first in class assignment will be to complete the pre-test below. The goal of this assignment is to determine what **you already know** so that I can adjust course materials appropriately. To that end, please treat this as a closed-note assignment. You should complete this project on your own, without feedback from your peers. This assignment will be graded based on whether or not it is submitted, not based on accuracy.
+
+1) Evaluate the following expressions: 
+
+a) a.	3*4 + 5 
+```{r 1a}
+a = 3*4 + 5
+a
+```
+
+b) √(64) /5 + (3*7)
+```{r 1b}
+b = sqrt(64) /5 + (3*7)
+b
+```
+
+c) take the sum of 4 and 9 and then multiply by 7
+```{r 1c}
+c = (4+9)*7
+c
+```
+
+2) Create variables that contain the following information: 
+
+a) A variable that contains your favorite number
+```{r q2a}
+fav = 9
+fav
+```
+
+b) A list of all numbers betwee 1 and 100
+```{r q2b}
+myList <- list(1:100)
+myList
+```
+
+c) A list of all odd numbers between 1 and 37
+```{r q2c}
+myListOdd <- seq(1, by=2, len=19)
+myListOdd
+```
+
+d)An object that contains the words younger and older repeated 5 times each 
+```{r q2d}
+names <- c("younger", "older")
+#Not sure how I would repeat this 5 times. This is something I would
+#just google
+```
+
+3) Evaluate the following logical statements:
+
+a) 3 times 4 is not equal to 6 plus 7
+```{r 3a}
+3*4 != 6+7
+```
+
+b) 4 squared is greater than 3 and 5 is less than 9 
+```{r 3b}
+(4^2) > 3 & 5<9
+```
+
+c) 12 divided by 2 is less than 5 or 4 is greater than 3
+```{r 3c}
+(12/2) < 5 || 4>3
+```
+
+4) Answer the following questions using the mtcars dataset
+
+a) open the mtcars dataset 
+```{r 4a}
+View(mtcars)
+```
+
+b) Describe the data that are present in this dataset
+
+It is a dataset on different cars and presents values for variables that
+include: "mpg"  "cyl"  "disp" "hp"   "drat" "wt"   "qsec" "vs"   "am"   "gear" "carb"
+
+c) What kind of variable is present in the am column? How do you know? 
+
+a numeric variable with range 0-1. You can know by hovering the mouse over it. 
+
+d) how many observations are in this dataset? 
+```{r 4d}
+nrow(mtcars)
+#there are 32 observations
+```
+
+e) what is the mean of the miles per gallon column? 
+```{r 4e}
+mean(mtcars$mpg)
+#The mean is 20.09062
+```
+
+f) what is the standard deviation of the miles per gallon column? 
+```{r 4f}
+sd(mtcars$mpg)
+#The SD is 6.026948
+```
+
+g) Print the top of the dataset
+```{r 4g}
+head(mtcars)
+#not sure if this is what you meant by top?
+```
+
+h) Summarize the whole dataset
+```{r 4h}
+summary(mtcars)
+```
+
+5) Use the mtcars dataset to accomplish the following:
+
+a) Create a scatter plot of hp versus mpg
+```{r 5a}
+myPlot <- plot(mtcars$hp, mtcars$mpg)
+```
+
+b) Add a regression line to your scatter plot
+```{r 5b}
+myMod <- lm(mtcars$hp~mtcars$mpg)
+#not sure how I would add this to the scatterplot but here's where i'd start
+```
+
+c) Create a bar graph with gear on the x axis. 
+```{r 5c}
+hist(mtcars$gear)
+```
+
+d) Add color to your bar graph by including information about the am column. 
+```{r 5d}
+#would also have to look this one up
+```
+
+6) Open the ChickWeight dataset
+```{r 6}
+View(ChickWeight)
+```
+
+a) Create a dataset that contains only the data associated with Chick #2
+```{r 6a}
+chick2 <- ChickWeight[2,]
+```
+
+b) Make a line graph of time vs weight
+```{r 6b}
+plot(ChickWeight$Time,ChickWeight$weight, type = "l")
+#def not correct. I would go to google for this
+```
+
+7. Open the diamonds dataset (in ggplot)
+```{r 7}
+library(ggplot2)
+library(dplyr)
+data(diamonds)
+View(diamonds)
+```
+
+a) Create a data set that contains all diamonds with over 1.5 carats and an ideal cut
+```{r 7a}
+bigDiamonds <- filter(diamonds, carat > 1.5 & cut == "ideal")
+#clearly this is not right and I would need to go to google to troubleshoot
+```
+
+b) How many diamonds have the clarity “VS1”?
+```{r 7b}
+clarityVS1 <- filter(diamonds, clarity =="VS1" )
+#there are 8171 obs
+```
+
+c) Graph carat by price in this new dataframe. Color by cut
+```{r 7c}
+plot(clarityVS1$carat, clarityVS1$price)
+#would have to google how to color by cut
+```
